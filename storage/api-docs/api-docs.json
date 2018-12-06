@@ -1,0 +1,2317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api Wedding",
+        "description": "Pra casar API for wedding name Pra Casar",
+        "termsOfService": "",
+        "contact": {
+            "email": "admin@approx.com.br"
+        },
+        "license": {
+            "name": "Pro Produtores",
+            "url": "https://www.proprodutores.com.br/"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Development server"
+        }
+    ],
+    "paths": {
+        "/action": {
+            "post": {
+                "tags": [
+                    "Action"
+                ],
+                "summary": "Create Chroma Image",
+                "description": "Create Chroma image",
+                "operationId": "App\\Http\\Controllers\\ActionController::create",
+                "requestBody": {
+                    "description": "Adding Chroma Image to Database",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChromaImage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/actions": {
+            "get": {
+                "tags": [
+                    "Action"
+                ],
+                "summary": "Get list of Actions",
+                "description": "Returns list of Actions",
+                "operationId": "App\\Http\\Controllers\\ActionController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Action"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
+        },
+        "/chroma/image": {
+            "get": {
+                "tags": [
+                    "ChromaImage"
+                ],
+                "summary": "List Chroma Image",
+                "description": "Return the List of Chroma image per User",
+                "operationId": "App\\Http\\Controllers\\ChromaImageController::index",
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChromaImage"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ChromaImage"
+                ],
+                "summary": "Create Chroma Image",
+                "description": "Create Chroma image",
+                "operationId": "App\\Http\\Controllers\\ChromaImageController::create",
+                "requestBody": {
+                    "description": "Adding Chroma Image to Database",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChromaImage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/chroma/image{image}": {
+            "delete": {
+                "tags": [
+                    "ChromaImage"
+                ],
+                "summary": "Delete Chroma Image",
+                "description": "Delete Chroma image of the User",
+                "operationId": "App\\Http\\Controllers\\ChromaImageController::delete",
+                "parameters": [
+                    {
+                        "name": "image",
+                        "in": "path",
+                        "description": "Chroma Image of the User",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/event": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create User's Event",
+                "description": "Create User's Event of Wedding",
+                "operationId": "App\\Http\\Controllers\\EventController::create",
+                "requestBody": {
+                    "description": "Saving Event to Database with Adress",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Event"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/event/{event}": {
+            "delete": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Delete Chroma Image",
+                "description": "Delete Chroma image of the User",
+                "operationId": "App\\Http\\Controllers\\EventController::delete",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "path",
+                        "description": "Id of the event",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/events": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "List Events",
+                "description": "Return the List of all Events of related to the Wedding",
+                "operationId": "App\\Http\\Controllers\\EventController::index",
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Event"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/event/{event}/confirm": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Confirm Presence on wedding",
+                "description": "Confirm presence on Event by event's id if you are a guest",
+                "operationId": "App\\Http\\Controllers\\EventController::confirm",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "path",
+                        "description": "Id of the event",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Saving the wedding confirmed status of the guest",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventGuest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/event/{event}/invite": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Return the updated list of invited Guest",
+                "description": "Return the updated list of invited and confirmed Guests by event's id, for easy visualization on the manager project",
+                "operationId": "App\\Http\\Controllers\\EventController::updateInvites",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "path",
+                        "description": "Id of the event",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Saving the wedding confirmed status of the guest",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventGuest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/gift": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create the Gift List",
+                "description": "Create the Gift List of the couple",
+                "operationId": "App\\Http\\Controllers\\GiftListController::create",
+                "requestBody": {
+                    "description": "List of method itens",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GiftList"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GiftList"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplier"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/gift/{gift}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete a Gift list",
+                "description": "Delete a Gift List",
+                "operationId": "App\\Http\\Controllers\\GiftListController::delete",
+                "parameters": [
+                    {
+                        "name": "gift",
+                        "in": "path",
+                        "description": "Id of GiftList",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/gifts": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Return the List of Gift LIst",
+                "description": "Return the List of Gift LIst by User",
+                "operationId": "App\\Http\\Controllers\\GiftListController::getAll",
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GiftList"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "//guest": {
+            "post": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Create Guest",
+                "description": "Create wedding guest by User",
+                "operationId": "App\\Http\\Controllers\\GuestController::create",
+                "requestBody": {
+                    "description": "Guest attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Guest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/invite": {
+            "post": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Create Invite",
+                "description": "Create the User's Wedding Invite",
+                "operationId": "App\\Http\\Controllers\\InviteController::create",
+                "requestBody": {
+                    "description": "Invite attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Invite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/invite/text": {
+            "post": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Create Invite's text",
+                "description": "Create the Invite's text message",
+                "operationId": "App\\Http\\Controllers\\InviteController::createText",
+                "requestBody": {
+                    "description": "Text attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InviteText"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/invite/text/{text}": {
+            "put": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Update Invite's text",
+                "description": "Update the Invite's text message",
+                "operationId": "App\\Http\\Controllers\\InviteController::updateText",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "description": "Invite's Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Text attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InviteText"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Delete Invite's Text",
+                "description": "Delete Invite's Text by Invite's Id ",
+                "operationId": "App\\Http\\Controllers\\InviteController::deleteText",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "description": "Invite's Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/invite/image/{image}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Show InviteImage by id",
+                "description": "Show InviteImage by Id",
+                "operationId": "App\\Http\\Controllers\\InviteImageController::getImage",
+                "parameters": [
+                    {
+                        "name": "image",
+                        "in": "path",
+                        "description": "InviteImage Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Update Image Url",
+                "description": "If the User doesn't have a Invite, it will create a New Invite, or Update the existing Invite",
+                "operationId": "App\\Http\\Controllers\\InviteController::update",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "description": "Invite's Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Invite attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Invite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Update Invite Image",
+                "description": "Update the InviteImage",
+                "operationId": "App\\Http\\Controllers\\InviteImageController::update",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "description": "InviteImage Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "InviteImage attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InviteImage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Delete Invite's Image",
+                "description": "Delete Invite's Image by Invite's Id ",
+                "operationId": "App\\Http\\Controllers\\InviteImageController::delete",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "description": "InviteImage Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/invites": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Invites",
+                "description": "Return the List of all Invites per User",
+                "operationId": "App\\Http\\Controllers\\InviteController::getAll",
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Invite"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/guest/{guest}/invite": {
+            "get": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Show Invite by id",
+                "description": "Show Invite to Guest by Guest Id",
+                "operationId": "App\\Http\\Controllers\\InviteController::get",
+                "parameters": [
+                    {
+                        "name": "guest",
+                        "in": "path",
+                        "description": "Guest Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/invite/image": {
+            "post": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Create Invite Image",
+                "description": "Create Invite Image",
+                "operationId": "App\\Http\\Controllers\\InviteImageController::create",
+                "requestBody": {
+                    "description": "InviteImage attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InviteImage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Create Post",
+                "description": "Create a Post with a filter containing censured words chosen by the couple and using the image of the Guest who commented",
+                "operationId": "App\\Http\\Controllers\\PostController::create",
+                "requestBody": {
+                    "description": "Post attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Post"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post/{post}": {
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Delete Post",
+                "description": "Delete Guest Post by User or if the Guest owns the post",
+                "operationId": "App\\Http\\Controllers\\PostController::delete",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/posts-for-aprove": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List of for Aprove Posts",
+                "description": "Return the list of Posts to Aprove",
+                "operationId": "App\\Http\\Controllers\\PostController::forAprove",
+                "requestBody": {
+                    "description": "Post attributes",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Post"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "List Posts",
+                "description": "Return the list of Posts to user or aproved posts to the user's guests",
+                "operationId": "App\\Http\\Controllers\\PostController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Post"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post/{post}/aprove": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Aprove the Post",
+                "description": "Aprovall by the couple",
+                "operationId": "App\\Http\\Controllers\\PostController::aprove",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Post attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAprove"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post/{post}/like": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Post Likes",
+                "description": "Save the Post Likes on pivot table by post id",
+                "operationId": "App\\Http\\Controllers\\PostController::postLike",
+                "requestBody": {
+                    "description": "Post attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostLike"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post/{post}/likes": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Post Likes by Guests",
+                "description": "Save the Post Likes on pivot table by post id",
+                "operationId": "App\\Http\\Controllers\\PostController::likes",
+                "requestBody": {
+                    "description": "Post attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GuestLike"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/post/{post}/image": {
+            "get": {
+                "tags": [
+                    "Invite"
+                ],
+                "summary": "Show Postimage by id",
+                "description": "Show Postimage by Id",
+                "operationId": "App\\Http\\Controllers\\PostController::getImage",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GuestLike"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/sensible-word": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create sensible word",
+                "description": "Create sensible word to filter the Posts",
+                "operationId": "App\\Http\\Controllers\\SensibleWordController::create",
+                "requestBody": {
+                    "description": "Sensible Words attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SensibleWord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/sensible-word/{sensibleWord}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete Sensible Words",
+                "description": "Delete Sensible Words by User",
+                "operationId": "App\\Http\\Controllers\\SensibleWordController::delete",
+                "parameters": [
+                    {
+                        "name": "sensibleWord",
+                        "in": "path",
+                        "description": "SensibleWord Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user/sensible-words": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Posts",
+                "description": "Return the list of Posts to user or aproved posts to the user's guests",
+                "operationId": "App\\Http\\Controllers\\SensibleWordController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SensibleWord"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/songs": {
+            "get": {
+                "tags": [
+                    "Song"
+                ],
+                "summary": "List of Songs",
+                "description": "Return the playlist of all Songs",
+                "operationId": "App\\Http\\Controllers\\SongController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Song"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Song"
+                ],
+                "summary": "Create Song",
+                "description": "Create a playlist of Songs to the wedding party",
+                "operationId": "App\\Http\\Controllers\\SongController::create",
+                "requestBody": {
+                    "description": "Song attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Song"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/song/{song}": {
+            "delete": {
+                "tags": [
+                    "Song"
+                ],
+                "summary": "Delete Song",
+                "description": "Delete Song of the playlist",
+                "operationId": "App\\Http\\Controllers\\SongController::delete",
+                "parameters": [
+                    {
+                        "name": "song",
+                        "in": "path",
+                        "description": "Song Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/song/{song}/like": {
+            "post": {
+                "tags": [
+                    "Song"
+                ],
+                "summary": "Song Likes",
+                "description": "Save the Song Likes on pivot table",
+                "operationId": "App\\Http\\Controllers\\SongController::like",
+                "requestBody": {
+                    "description": "GuestLike attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GuestLike"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/tiebuy": {
+            "get": {
+                "tags": [
+                    "TieBuy"
+                ],
+                "summary": "List of TieBuy",
+                "description": "Return the List of TieBuys",
+                "operationId": "App\\Http\\Controllers\\TiebuyController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TieBuy"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "TieBuy"
+                ],
+                "summary": "Create TieBuy",
+                "description": "Create a TieBuy of Guests",
+                "operationId": "App\\Http\\Controllers\\TiebuyController::create",
+                "requestBody": {
+                    "description": "Tie Buy attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TieBuy"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/tiepiece": {
+            "get": {
+                "tags": [
+                    "TiePiece"
+                ],
+                "summary": "List of TiePieces",
+                "description": "Return the List of Tipieces",
+                "operationId": "App\\Http\\Controllers\\TiepieceController::index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TiePiece"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/tiepieces": {
+            "post": {
+                "tags": [
+                    "TiePiece"
+                ],
+                "summary": "Create TiePiece",
+                "description": "Create a Piepiece for the Guests",
+                "operationId": "App\\Http\\Controllers\\TiepieceController::create",
+                "requestBody": {
+                    "description": "TiePiece attributes",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TiePiece"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List users",
+                "description": "Returns the list of all users",
+                "externalDocs": "",
+                "operationId": "getPetById",
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List users",
+                "description": "Returns the list of all users",
+                "operationId": "getPetById",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplier"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Action": {
+                "required": [
+                    "id",
+                    "title",
+                    "expense",
+                    "notify_guests",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Cha de Panela"
+                    },
+                    "expense": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "expense_value": {
+                        "type": "double",
+                        "example": 850.06
+                    },
+                    "expense_date": {
+                        "type": "date",
+                        "example": "17/01/2018"
+                    },
+                    "notify_guests": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "notify_date_from": {
+                        "type": "date",
+                        "example": "17/01/2018"
+                    },
+                    "notify_date_to": {
+                        "type": "date",
+                        "example": "17/02/2018"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Compareça"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Adress": {
+                "required": [
+                    "id",
+                    "street",
+                    "number",
+                    "neighborhood",
+                    "city",
+                    "state",
+                    "cep"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "street": {
+                        "type": "string",
+                        "example": "Av dos Andradas"
+                    },
+                    "number": {
+                        "type": "string",
+                        "example": "79A"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "example": "Centro"
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "Belo Horizonte"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "Minas Gerais"
+                    },
+                    "cep": {
+                        "type": "string",
+                        "example": "68490565"
+                    },
+                    "complement": {
+                        "type": "date",
+                        "example": "Esquina com Tamoios"
+                    }
+                },
+                "type": "object"
+            },
+            "ChromaImage": {
+                "required": [
+                    "img_url",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "img_url": {
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "Color": {
+                "required": [
+                    "id",
+                    "r",
+                    "g",
+                    "b"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "r": {
+                        "type": "integer",
+                        "example": 12
+                    },
+                    "g": {
+                        "type": "integer",
+                        "example": 15
+                    },
+                    "b": {
+                        "type": "integer",
+                        "example": 49
+                    }
+                },
+                "type": "object"
+            },
+            "Event": {
+                "required": [
+                    "id",
+                    "name",
+                    "date",
+                    "adress_id",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Cha de Panela"
+                    },
+                    "date": {
+                        "type": "date",
+                        "example": "18/03/2018"
+                    },
+                    "adress_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "date",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Font": {
+                "required": [
+                    "id",
+                    "name",
+                    "font_url"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Arial"
+                    },
+                    "font_url": {
+                        "type": "string",
+                        "example": "Arial Black"
+                    }
+                },
+                "type": "object"
+            },
+            "Gender": {
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "female"
+                    }
+                },
+                "type": "object"
+            },
+            "GiftList": {
+                "required": [
+                    "id",
+                    "name",
+                    "link",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Ricardo eletro"
+                    },
+                    "link": {
+                        "type": "string",
+                        "example": "http://ricardoeletro.com.br"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Guest": {
+                "required": [
+                    "id",
+                    "user_id",
+                    "confirmed",
+                    "is_on_singles_meeting",
+                    "is_user"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "John"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "john@email.com"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "(031)98484-5959"
+                    },
+                    "age": {
+                        "type": "integer",
+                        "example": 45
+                    },
+                    "confirmed": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "is_on_singles_meeting": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "profile_img": {
+                        "type": "string",
+                        "example": "minhafoto675.png"
+                    },
+                    "photo1_url": {
+                        "type": "string",
+                        "example": "2/CR84460/image/CR84460-image1.jpeg"
+                    },
+                    "photo2_url": {
+                        "type": "string",
+                        "example": "2/CR84460/image/CR84460-image2.jpeg"
+                    },
+                    "photo3_url": {
+                        "type": "string",
+                        "example": "2/CR84460/image/CR84460-image3.jpeg"
+                    },
+                    "is_user": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "About"
+                    },
+                    "gender_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "want_gender_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "fcm_device_token": {
+                        "type": "string",
+                        "example": "ioqweosjahsdipasd1287HSUa"
+                    }
+                },
+                "type": "object"
+            },
+            "GuestLike": {
+                "required": [
+                    "guest_id",
+                    "liked_id",
+                    "liked"
+                ],
+                "properties": {
+                    "guest_id": {
+                        "type": "string",
+                        "example": "JCM88976"
+                    },
+                    "liked_id": {
+                        "type": "string",
+                        "example": "JMF87676"
+                    },
+                    "liked": {
+                        "type": "tinyint",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "GuestMatch": {
+                "required": [
+                    "id",
+                    "guest_id",
+                    "guest2_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "JCM88976"
+                    },
+                    "guest2_id": {
+                        "type": "string",
+                        "example": "JMF87676"
+                    }
+                },
+                "type": "object"
+            },
+            "EventGuest": {
+                "required": [
+                    "event_id",
+                    "guest_id",
+                    "confirmed"
+                ],
+                "properties": {
+                    "event_id": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "JMF87676"
+                    },
+                    "confirmed": {
+                        "type": "tinyint",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "PostLike": {
+                "required": [
+                    "post_id",
+                    "guest_id"
+                ],
+                "properties": {
+                    "post_id": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "JMF87676"
+                    }
+                },
+                "type": "object"
+            },
+            "PostAprove": {
+                "required": [
+                    "aproved"
+                ],
+                "properties": {
+                    "aproved": {
+                        "type": "tinyint",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Invite": {
+                "required": [
+                    "id",
+                    "user_id",
+                    "bg_url"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "bg_url": {
+                        "type": "string",
+                        "example": "jiasudoiua.jpeg"
+                    }
+                },
+                "type": "object"
+            },
+            "InviteImage": {
+                "required": [
+                    "id",
+                    "image_url",
+                    "width",
+                    "height",
+                    "x",
+                    "y",
+                    "layer",
+                    "invite_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "image_url": {
+                        "type": "string",
+                        "example": "jaosidoqwoiklsa.jpeg"
+                    },
+                    "width": {
+                        "type": "double",
+                        "example": 1.41
+                    },
+                    "height": {
+                        "type": "double",
+                        "example": 850.06
+                    },
+                    "x": {
+                        "type": "double",
+                        "example": 25.69
+                    },
+                    "y": {
+                        "type": "double",
+                        "example": 103.56
+                    },
+                    "layer": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "invite_id": {
+                        "type": "integer",
+                        "example": 2
+                    }
+                },
+                "type": "object"
+            },
+            "InviteText": {
+                "required": [
+                    "id",
+                    "text",
+                    "width",
+                    "height",
+                    "x",
+                    "y",
+                    "invite_id",
+                    "hexColor",
+                    "layer",
+                    "font_id",
+                    "font_size"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "text": {
+                        "type": "string",
+                        "example": "Convite"
+                    },
+                    "width": {
+                        "type": "double",
+                        "example": 1.41
+                    },
+                    "height": {
+                        "type": "double",
+                        "example": 850.06
+                    },
+                    "x": {
+                        "type": "double",
+                        "example": 25.69
+                    },
+                    "y": {
+                        "type": "double",
+                        "example": 103.56
+                    },
+                    "invite_id": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "hexColor": {
+                        "type": "string",
+                        "example": "#000000"
+                    },
+                    "layer": {
+                        "type": "int",
+                        "example": 5
+                    },
+                    "font_id": {
+                        "type": "int",
+                        "example": 3
+                    },
+                    "font_size": {
+                        "type": "double",
+                        "example": 3.62
+                    }
+                },
+                "type": "object"
+            },
+            "MatchesConversation": {
+                "required": [
+                    "id",
+                    "guest_id",
+                    "match_id",
+                    "message"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "JCM88976"
+                    },
+                    "match_id": {
+                        "type": "string",
+                        "example": "JMF87676"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Boa noite"
+                    }
+                },
+                "type": "object"
+            },
+            "Post": {
+                "required": [
+                    "id",
+                    "text",
+                    "guest_id",
+                    "image_url",
+                    "aproved"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "text": {
+                        "type": "string",
+                        "example": "Melhor Casal"
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "TRU87856"
+                    },
+                    "image_url": {
+                        "type": "string",
+                        "example": "post989820.png"
+                    },
+                    "aproved": {
+                        "type": "tinyint",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "SensibleWord": {
+                "required": [
+                    "id",
+                    "word",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "word": {
+                        "type": "string",
+                        "example": "Sucesso"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "Song": {
+                "required": [
+                    "id",
+                    "name",
+                    "artist",
+                    "likes",
+                    "guest_id",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Chocolate"
+                    },
+                    "artist": {
+                        "type": "string",
+                        "example": "Tim Maia"
+                    },
+                    "likes": {
+                        "type": "integer",
+                        "example": 6
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "GRD87656"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "TieBuy": {
+                "required": [
+                    "id",
+                    "tie_piece_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "tie_piece_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "guest_id": {
+                        "type": "string",
+                        "example": "TRU87856"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Johnes"
+                    }
+                },
+                "type": "object"
+            },
+            "TiePiece": {
+                "required": [
+                    "id",
+                    "value",
+                    "user_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "value": {
+                        "type": "double",
+                        "example": 20.63
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "example": "TRU87856"
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "required": [
+                    "id",
+                    "name_1",
+                    "name_2",
+                    "email",
+                    "password",
+                    "waiting_guests",
+                    "quiz_released",
+                    "puzzle_released",
+                    "memory_game_released",
+                    "publications_should_be_aproved"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name_1": {
+                        "type": "string",
+                        "example": "João"
+                    },
+                    "name_2": {
+                        "type": "string",
+                        "example": "Maria"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "joao@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "*********"
+                    },
+                    "wedding_date": {
+                        "type": "date",
+                        "example": "30/12/2018"
+                    },
+                    "want_to_spent": {
+                        "type": "integer",
+                        "example": 50000
+                    },
+                    "wating_guests": {
+                        "type": "integer",
+                        "example": 300
+                    },
+                    "wedding_adress_id": {
+                        "type": "integer",
+                        "example": "Endereço x, rua y, etc..."
+                    },
+                    "quiz_released": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "puzzle_released": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "memory_game_released": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "publications_should_be_aproved": {
+                        "type": "tinyint",
+                        "example": 1
+                    },
+                    "remember_token": {
+                        "type": "string",
+                        "example": "hhsuioiue0982103909oiwueoqu0198203qu"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "Tag for Users services"
+        },
+        {
+            "name": "Action",
+            "description": "Action is responsible for the part of the wedding's expenses"
+        },
+        {
+            "name": "ChromaImage",
+            "description": "Tag for Chroma Image"
+        },
+        {
+            "name": "Adress",
+            "description": "Adress for a lot of uses"
+        },
+        {
+            "name": "Event",
+            "description": "Events of the Wedding"
+        },
+        {
+            "name": "Guest",
+            "description": "Guests of the Wedding"
+        },
+        {
+            "name": "Invite",
+            "description": "Guests of the Wedding"
+        },
+        {
+            "name": "Post",
+            "description": "Guests of the Wedding"
+        },
+        {
+            "name": "Song",
+            "description": "Guests of the Wedding"
+        },
+        {
+            "name": "TieBuy",
+            "description": "Guests of the Wedding"
+        },
+        {
+            "name": "TiePiece",
+            "description": "Guests of the Wedding"
+        }
+    ]
+}
